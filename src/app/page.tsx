@@ -1,6 +1,7 @@
 'use client';
 
 import { ChangeEvent, useState } from "react";
+import { List } from "@/app/list";
 
 export default function App() {
   const [technologies, setTechnologies] = useState(['React.js', 'Angular']);
@@ -60,11 +61,7 @@ export default function App() {
         </div>
       </div>
 
-      <ul className="list-disc mt-5">
-        {technologies.map(tech => (
-            <li key={tech}>{tech}</li>
-        ))}
-      </ul>
+      <List technologies={technologies} />
     </main>
   )
 }
