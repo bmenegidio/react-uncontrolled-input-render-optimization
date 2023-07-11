@@ -7,7 +7,7 @@
 ## Motivo
 Exemplo de utilização de input não controlado (uncontrolled inputs) para evitar renderizações desnecessárias em componentes [react](https://react.dev/).
 
-> Nesse outro repositório: https://github.com/bmenegidio/react-memo eu utilizo o "*memo*" para resolver o problema de renderização. Porém, nesse cenário a opção mais otimizada seria utilizar uncontrolled inputs, como veremos a seguir. 
+> Nesse outro repositório: https://github.com/bmenegidio/react-memo eu utilizo o "*memo*" para resolver o problema de renderização. Porém, nesse cenário a opção mais otimizada seria utilizar uncontrolled components, como veremos a seguir. 
 
 ## O problema
 Após executar o comando `npm run dev` e acessar o seguinte endereço no browser `http://localhost:3000/`, você verá a seguinte tela:
