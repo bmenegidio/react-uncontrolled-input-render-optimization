@@ -1,11 +1,12 @@
 'use client';
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { List } from "@/app/list";
 
 export default function App() {
   const [technologies, setTechnologies] = useState(['React.js', 'Angular']);
   const [controlledInputText, setControlledInputText] = useState('');
+  const uncontrolledInputRef = useRef<HTMLInputElement>(null);
 
   function handleSetControlledInputText(event: ChangeEvent<HTMLInputElement>) {
     setControlledInputText(event.currentTarget.value);
@@ -16,6 +17,16 @@ export default function App() {
       ...currentValues,
       controlledInputText,
     ])
+  }
+
+  function handleAddTechUncontrolledInput() {
+    const techName = uncontrolledInputRef.current?.value || ''
+    if (techName) {
+      setTechnologies(currentValues => [
+        ...currentValues,
+        techName,
+      ])
+    }
   }
 
   return (
@@ -52,9 +63,11 @@ export default function App() {
           <input type="text"
                  id="uncontrolledInput"
                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                 ref={uncontrolledInputRef}
           />
           <button type="button"
                   className="text-white focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600"
+                  onClick={handleAddTechUncontrolledInput}
           >
             Adicionar
           </button>
