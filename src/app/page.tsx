@@ -10,6 +10,13 @@ export default function App() {
     setControlledInputText(event.currentTarget.value);
   }
 
+  function handleAddTechControlledInput() {
+    setTechnologies(currentValues => [
+      ...currentValues,
+      controlledInputText,
+    ])
+  }
+
   return (
     <main className="flex flex-col gap-5 p-7 w-full md:w-[32rem]">
       <div>
@@ -27,6 +34,7 @@ export default function App() {
           />
           <button type="button"
                   className="text-white focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600"
+                  onClick={handleAddTechControlledInput}
           >
             Adicionar
           </button>
