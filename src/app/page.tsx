@@ -13,10 +13,12 @@ export default function App() {
   }
 
   function handleAddTechControlledInput() {
-    setTechnologies(currentValues => [
-      ...currentValues,
-      controlledInputText,
-    ])
+    if (controlledInputText) {
+      setTechnologies(currentValues => [
+        ...currentValues,
+        controlledInputText,
+      ])
+    }
   }
 
   function handleAddTechUncontrolledInput() {
